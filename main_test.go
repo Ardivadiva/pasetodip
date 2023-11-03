@@ -28,14 +28,14 @@ func TestGeneratePrivateKeyPaseto(t *testing.T) {
 	privateKey, publicKey := watoken.GenerateKey()
 	fmt.Println(privateKey)
 	fmt.Println(publicKey)
-	hasil, err := watoken.Encode("serbaevent", privateKey)
+	hasil, err := watoken.Encode("pasdip", privateKey)
 	fmt.Println(hasil, err)
 }
 
 func TestHashFunction(t *testing.T) {
 	mconn := SetConnection("MONGOSTRING", "PASETO1")
 	var userdata User
-	userdata.Username = "serbaevent"
+	userdata.Username = "pasdip"
 	userdata.Password = "begitulah"
 
 	filter := bson.M{"username": userdata.Username}
@@ -51,7 +51,7 @@ func TestHashFunction(t *testing.T) {
 func TestIsPasswordValid(t *testing.T) {
 	mconn := SetConnection("MONGOSTRING", "PASETO1")
 	var userdata User
-	userdata.Username = "serbaevent"
+	userdata.Username = "pasdip"
 	userdata.Password = "begitulah"
 
 	anu := IsPasswordValid(mconn, "user", userdata)
@@ -61,7 +61,7 @@ func TestIsPasswordValid(t *testing.T) {
 func TestInsertUser(t *testing.T) {
 	mconn := SetConnection("MONGOSTRING", "PASETO1")
 	var userdata User
-	userdata.Username = "serbaevent"
+	userdata.Username = "pasdip"
 	userdata.Password = "begitulah"
 
 	nama := InsertUser(mconn, "user", userdata)
